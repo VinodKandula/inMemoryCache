@@ -1,7 +1,6 @@
 package com.wmn.cache;
 
 public interface Cache <K, V> {
-
     /**
      * get the value
      * @param key the key
@@ -21,5 +20,4 @@ public interface Cache <K, V> {
      * @param key the key
      */
     void remove(K key);
-
 }

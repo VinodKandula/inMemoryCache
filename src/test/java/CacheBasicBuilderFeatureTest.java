@@ -40,6 +40,4 @@ public class CacheBasicBuilderFeatureTest {
         Assert.assertNotNull(cacheWithNewEviction.getEvictionPolicy());
         Assert.assertTrue(cacheWithNewEviction.getEvictionPolicy() instanceof MRUEvictionPolicy);
     }
-
-
 }

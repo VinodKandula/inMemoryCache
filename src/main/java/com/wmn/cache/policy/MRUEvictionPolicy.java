@@ -11,11 +11,11 @@ import java.util.NoSuchElementException;
  * @param <K>
  * @param <V>
  */
-public class MRUEvictionPolicy<K,V> implements EvictionPolicy<K,V>{
-
+public class MRUEvictionPolicy<K,V> extends AbstractEvicitionPolicy<K,V>{
 
     @Override
     public void evict(List<CacheEntry<K, V>> cacheEntries) {
+        super.evict(cacheEntries);
 
         //getting the entry with the smallest ageBit (means the least recently used)
         CacheEntry<K, V> max = cacheEntries.stream()
@@ -23,6 +23,5 @@ public class MRUEvictionPolicy<K,V> implements EvictionPolicy<K,V>{
                 .orElseThrow(NoSuchElementException::new);
 
         cacheEntries.removeIf(e -> e.equals(max));
-
     }
 }
