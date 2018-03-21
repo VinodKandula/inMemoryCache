@@ -29,7 +29,7 @@ public class CacheEntry <K, V> {
         this.key = key;
         this.value = value;
 
-        long t1 = System.currentTimeMillis();;
+        long t1 = System.currentTimeMillis();
         this.creationTime = t1;
         this.touchTime = new AtomicLong(t1);
 
@@ -68,7 +68,7 @@ public class CacheEntry <K, V> {
 
         if (object == null || !(object instanceof CacheEntry) ) return false;
 
-        CacheEntry ce = (CacheEntry) object;;
+        CacheEntry ce = (CacheEntry) object;
         return key.hashCode() == ce.getKey().hashCode()
                 && value.hashCode() == ce.getValue().hashCode();
     }

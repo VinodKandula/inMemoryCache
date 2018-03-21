@@ -40,12 +40,17 @@ public class NWayAssociativeCache<K,V> extends AbstractEvictionCache<K,V>{
         private CacheOutlet<K,V> cacheOutlet;
 
         public Builder(int numSets, int numLines){
+            if (numSets < 1 || numLines < 1)
+                throw new CacheBuilderException("numOfSets and numOfLines must greater or equals 1");
+
             this.numSets = numSets;
             this.numLines = numLines;
             this.evictionPolicy = new LRUEvictionPolicy<>();
         }
 
         public Builder<K,V> withEvictionPolicy(EvictionPolicy<K,V> evictionPolicy){
+            if (evictionPolicy == null)
+                throw new CacheBuilderException("Eviction Policy cannot be null");
             this.evictionPolicy = evictionPolicy;
             return this;
         }
@@ -74,9 +79,6 @@ public class NWayAssociativeCache<K,V> extends AbstractEvictionCache<K,V>{
     private int numLines;
 
     private NWayAssociativeCache(int numSets, int numLines){
-        if (numSets < 1 || numLines < 1)
-            throw new IllegalArgumentException();
-
         this.numSets = numSets;
         this.numLines = numLines;
 

@@ -11,7 +11,7 @@ import java.util.NoSuchElementException;
  * @param <K>
  * @param <V>
  */
-public class LRUEvictionPolicy<K, V> extends AbstractEvicitionPolicy<K,V>{
+public class LRUEvictionPolicy<K, V> extends AbstractEvictionPolicy<K,V> {
 
     @Override
     public void evict(List<CacheEntry<K, V>> cacheEntries) {

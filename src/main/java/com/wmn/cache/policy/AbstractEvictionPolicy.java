@@ -4,7 +4,7 @@ import com.wmn.cache.CacheEntry;
 
 import java.util.List;
 
-public class AbstractEvicitionPolicy<K,V> implements EvictionPolicy<K,V>{
+public class AbstractEvictionPolicy<K,V> implements EvictionPolicy<K,V>{
 
     @Override
     public void evict(List<CacheEntry<K, V>> cacheEntries) {
